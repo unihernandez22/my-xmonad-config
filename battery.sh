@@ -13,18 +13,18 @@ elif [ $1 == '-icon' ]; then
     state=$(cat /sys/class/power_supply/BAT0/status)
     if [ $state == 'Charging' ]; then
       echo 
-    elif [[ $percent > 95 ]] || [ $percent -eq 100 ]; then
+    elif (( $percent > 95 )); then
       echo 
-    elif [[ $percent > 75 ]]; then
+    elif (( $percent > 75 )); then
       echo 
-    elif [[ $percent > 50 ]]; then
+    elif (( $percent > 50 )); then
       echo 
-    elif [[ $percent > 30 ]]; then
+    elif (( $percent > 30 )); then
       echo 
-    elif [[ $percent > 15 ]]; then
+    elif (( $percent > 15 )); then
       echo 
     else
-      echo 
+      echo '<fc=#ff4050></fc>'
     fi
     sleep 5
   done

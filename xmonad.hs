@@ -12,7 +12,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 
 import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
@@ -429,7 +429,7 @@ defaults = def {
 
     -- hooks, layouts
     layoutHook         = myLayout,
-    handleEventHook    = fullscreenEventHook,
+    handleEventHook    = XMonad.Hooks.EwmhDesktops.fullscreenEventHook,
     -- startupHook        = myStartupHook,
     manageHook         = manageDocks <+> myManageHook
 } `additionalKeys` myKeys
